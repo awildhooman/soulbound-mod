@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "soulbound",
+	"version": "${version}",
+	"name": "Soulbound Enchantment",
+	"description": "This mod allows you to keep gear after death",
+	"authors": [
+		"duck_man0"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/soulbound/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"soulbound.SoulboundMod"
+		]
+	},
+	"mixins": [
+		"soulbound.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.21",
+		"java": ">=21"
+	}
+}
