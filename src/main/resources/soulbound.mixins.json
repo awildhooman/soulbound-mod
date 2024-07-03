@@ -6,8 +6,6 @@
     "SoulboundPlayerManagerMixin",
     "SoulboundPlayerInventoryMixin"
   ],
-  "client": [],
-  "server": [],
   "injectors": {
     "defaultRequire": 1
   }
