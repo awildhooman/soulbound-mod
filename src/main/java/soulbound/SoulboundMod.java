@@ -21,6 +21,6 @@ public class SoulboundMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-		LOGGER.info("Soulbound mod is running. [][][][][]");
+		LOGGER.info("Soulbound mod is running.");
 	}
 }
