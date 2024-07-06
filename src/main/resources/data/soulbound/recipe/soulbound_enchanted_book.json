@@ -1,22 +1,29 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " H ",
+    " K ",
     " B ",
-    " C "
+    " S "
   ],
   "key": {
+    "K": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
     "B": {
       "item": "minecraft:book"
     },
-    "C": {
-      "item": "minecraft:sculk_catalyst"
-    },
-    "H": {
-      "item": "minecraft:diamond"
+    "S": {
+      "tag": "minecraft:soul_fire_base_blocks"
     }
   },
   "result": {
-    "id": "minecraft:enchanted_book"
+    "id": "minecraft:enchanted_book",
+    "components": {
+      "stored_enchantments": {
+        "levels": {
+          "soulbound:soulbound": 1
+        }
+      }
+    }
   }
 }
