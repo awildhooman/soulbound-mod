@@ -1,4 +1,4 @@
-package soulbound.mixin;
+package com.awildhooman.soulbound.mixin;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerInventory;

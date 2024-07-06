@@ -1,4 +1,4 @@
-package soulbound.mixin;
+package com.awildhooman.soulbound.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;

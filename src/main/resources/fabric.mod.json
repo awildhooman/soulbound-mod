@@ -16,7 +16,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"soulbound.SoulboundMod"
+			"com.awildhooman.soulbound.SoulboundMod"
 		]
 	},
 	"mixins": [

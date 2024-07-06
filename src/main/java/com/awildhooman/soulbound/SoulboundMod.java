@@ -1,4 +1,4 @@
-package soulbound;
+package com.awildhooman.soulbound;
 
 import net.fabricmc.api.ModInitializer;
 
