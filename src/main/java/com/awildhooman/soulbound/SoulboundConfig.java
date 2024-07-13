@@ -12,18 +12,28 @@ public class SoulboundConfig {
     public static void initializeConfig() {
         try {
             FabricLoader loader = FabricLoader.getInstance();
-            File configFile = new File(loader.getConfigDir() + "/soulbound.json");
+            File configFile = new File(loader.getConfigDir() + File.separator + "soulbound.json");
             if (configFile.createNewFile()) {
                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                String json = gson.toJson(new DefaultConfigs());
+                String json = gson.toJson(new Configs());
                 Files.write(configFile.toPath(), json.getBytes());
             }
         } catch (IOException e) {}
     }
 
-    public static class DefaultConfigs {
-        boolean damageSoulboundItems = false;
-        double minimumDamage = 0.1;
-        double maximumDamage = 0.2;
+    public static Configs readJson() {
+        try {
+            Gson gson = new Gson();
+            FabricLoader loader = FabricLoader.getInstance();
+            File configFile = new File(loader.getConfigDir() + File.separator + "soulbound.json");
+            return gson.fromJson(Files.readString(configFile.toPath()), Configs.class);
+        } catch (IOException e) {return null;}
+    }
+
+    public static class Configs {
+        public boolean damageSoulboundItems = false;
+        public double minimumDamage = 0.1;
+        public double maximumDamage = 0.2;
+
     }
 }
