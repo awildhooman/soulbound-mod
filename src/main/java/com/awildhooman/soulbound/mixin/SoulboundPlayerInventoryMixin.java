@@ -1,5 +1,7 @@
 package com.awildhooman.soulbound.mixin;
 
+import com.awildhooman.soulbound.SoulboundConfig;
+import com.google.gson.Gson;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -14,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(PlayerInventory.class)
 public class SoulboundPlayerInventoryMixin {
     @WrapOperation(method = "dropAll", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isEmpty()Z"))
-    public boolean checkSoulboundEnchantment(ItemStack instance, Operation<Boolean> original){
-        return instance.isEmpty() || EnchantmentHelper.hasAnyEnchantmentsIn(instance, TagKey.of(RegistryKeys.ENCHANTMENT, Identifier.of("keeps_items_on_death")));
+    public boolean checkSoulboundEnchantment(ItemStack stack, Operation<Boolean> original){
+        return stack.isEmpty() || EnchantmentHelper.hasAnyEnchantmentsIn(stack, TagKey.of(RegistryKeys.ENCHANTMENT, Identifier.of("keeps_items_on_death")));
     }
 }
