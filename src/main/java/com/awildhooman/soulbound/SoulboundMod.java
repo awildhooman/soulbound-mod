@@ -11,5 +11,7 @@ public class SoulboundMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		//LOGGER.info("Soulbound mod is running.");
+		SoulboundConfig.initializeConfig();
+		System.exit(0);
 	}
 }
