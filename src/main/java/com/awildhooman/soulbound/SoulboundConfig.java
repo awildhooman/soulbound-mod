@@ -8,10 +8,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 public class SoulboundConfig {
+    static FabricLoader loader = FabricLoader.getInstance();
 
     public static void initializeConfig() {
         try {
-            FabricLoader loader = FabricLoader.getInstance();
             File configFile = new File(loader.getConfigDir() + File.separator + "soulbound.json");
             if (configFile.createNewFile()) {
                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -24,7 +24,6 @@ public class SoulboundConfig {
     public static Configs readJson() {
         try {
             Gson gson = new Gson();
-            FabricLoader loader = FabricLoader.getInstance();
             File configFile = new File(loader.getConfigDir() + File.separator + "soulbound.json");
             return gson.fromJson(Files.readString(configFile.toPath()), Configs.class);
         } catch (IOException e) {return null;}
