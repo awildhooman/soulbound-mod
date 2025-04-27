@@ -3,9 +3,11 @@ package com.awildhooman.soulbound;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.fabricmc.loader.api.FabricLoader;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.logging.Logger;
 
 public class SoulboundConfig {
     static FabricLoader loader = FabricLoader.getInstance();
@@ -18,7 +20,9 @@ public class SoulboundConfig {
                 String json = gson.toJson(new Configs());
                 Files.write(configFile.toPath(), json.getBytes());
             }
-        } catch (IOException e) {}
+        } catch (IOException e) {
+            SoulboundMod.LOGGER.error(e.getMessage());
+        }
     }
 
     public static Configs readJson() {
@@ -26,13 +30,15 @@ public class SoulboundConfig {
             Gson gson = new Gson();
             File configFile = new File(loader.getConfigDir() + File.separator + "soulbound.json");
             return gson.fromJson(Files.readString(configFile.toPath()), Configs.class);
-        } catch (IOException e) {return null;}
+        } catch (IOException e) {
+            SoulboundMod.LOGGER.error(e.getMessage());
+            return null;
+        }
     }
 
     public static class Configs {
         public boolean damageSoulboundItems = false;
         public double minimumDamage = 0.1;
         public double maximumDamage = 0.2;
-
     }
 }
